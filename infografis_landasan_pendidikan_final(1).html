@@ -3,15 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Infografis – PPT Laspen Kel. 10</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+    <title>Infografis Edukatif – Landasan Pendidikan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --cream: #f5f0e8;
             --warm-white: #faf8f4;
             --ink: #1a1714;
             --rust: #c0562a;
+            --rust-light: rgba(192,86,42,0.08);
             --sage: #4a6741;
+            --sage-light: rgba(74,103,65,0.08);
             --muted: #8a8279;
             --border: #ddd8ce;
             --card: #fffefb;
@@ -19,7 +21,6 @@
         * { margin:0; padding:0; box-sizing:border-box; }
         body { font-family:'Source Serif 4',Georgia,serif; background:var(--cream); color:var(--ink); line-height:1.75; }
 
-        /* AI-corrected underline */
         .ai {
             text-decoration: underline;
             text-decoration-color: #e03e3e;
@@ -27,125 +28,225 @@
             text-underline-offset: 3px;
         }
 
-        .page { max-width:880px; margin:0 auto; background:var(--warm-white); box-shadow:0 0 60px rgba(0,0,0,.12); }
+        .page { max-width:900px; margin:0 auto; background:var(--warm-white); box-shadow:0 0 80px rgba(0,0,0,.13); }
 
-        /* COVER */
-        .cover { padding:68px 64px 56px; border-bottom:1px solid var(--border); position:relative; overflow:hidden; }
-        .cover::after { content:''; position:absolute; top:-60px; right:-60px; width:360px; height:360px; background:radial-gradient(circle, rgba(192,86,42,.07) 0%, transparent 68%); border-radius:50%; pointer-events:none; }
-        .eyebrow { font-family:'DM Sans',sans-serif; font-size:.7rem; letter-spacing:.2em; text-transform:uppercase; color:var(--rust); display:flex; align-items:center; gap:10px; margin-bottom:20px; }
+        /* ── IDENTITY STRIP ── */
+        .identity-strip {
+            background: var(--ink);
+            color: #fff;
+            padding: 16px 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .identity-strip .id-group { display:flex; flex-direction:column; gap:2px; }
+        .id-label { font-family:'DM Sans',sans-serif; font-size:.6rem; letter-spacing:.18em; text-transform:uppercase; color:rgba(255,255,255,.45); }
+        .id-value { font-family:'DM Sans',sans-serif; font-size:.82rem; color:rgba(255,255,255,.9); font-weight:500; }
+        .id-value.placeholder { color:rgba(255,255,255,.35); font-style:italic; }
+        .id-divider { width:1px; height:36px; background:rgba(255,255,255,.15); }
+
+        /* ── COVER ── */
+        .cover {
+            padding: 64px 64px 52px;
+            border-bottom: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+        .cover::after {
+            content:''; position:absolute; top:-80px; right:-80px;
+            width:420px; height:420px;
+            background:radial-gradient(circle, rgba(192,86,42,.06) 0%, transparent 65%);
+            border-radius:50%; pointer-events:none;
+        }
+        .eyebrow {
+            font-family:'DM Sans',sans-serif; font-size:.68rem;
+            letter-spacing:.22em; text-transform:uppercase;
+            color:var(--rust); display:flex; align-items:center; gap:10px; margin-bottom:20px;
+        }
         .eyebrow::before { content:''; width:28px; height:2px; background:var(--rust); flex-shrink:0; }
-        .cover h1 { font-family:'Playfair Display',serif; font-size:3.8rem; font-weight:900; line-height:1.08; }
+        .cover h1 { font-family:'Playfair Display',serif; font-size:3.6rem; font-weight:900; line-height:1.08; }
         .cover h1 em { font-style:italic; color:var(--rust); }
-        .cover-sub { font-family:'DM Sans',sans-serif; font-size:.9rem; color:var(--muted); margin-top:16px; max-width:500px; line-height:1.65; }
-        .badges { display:flex; flex-wrap:wrap; gap:8px; margin-top:26px; }
-        .badge { font-family:'DM Sans',sans-serif; font-size:.68rem; letter-spacing:.08em; text-transform:uppercase; padding:5px 13px; border-radius:20px; }
+        .cover-sub { font-family:'DM Sans',sans-serif; font-size:.88rem; color:var(--muted); margin-top:14px; max-width:540px; line-height:1.7; }
+        .cover-badges { display:flex; flex-wrap:wrap; gap:8px; margin-top:22px; }
+        .badge { font-family:'DM Sans',sans-serif; font-size:.66rem; letter-spacing:.08em; text-transform:uppercase; padding:5px 13px; border-radius:20px; }
         .badge-fill { background:var(--rust); color:#fff; }
         .badge-line { background:transparent; border:1.5px solid var(--border); color:var(--muted); }
-        .legend { display:inline-flex; align-items:center; gap:9px; font-family:'DM Sans',sans-serif; font-size:.76rem; color:var(--muted); margin-top:20px; background:var(--card); border:1px solid var(--border); border-radius:20px; padding:5px 14px; }
+        .legend {
+            display:inline-flex; align-items:center; gap:9px;
+            font-family:'DM Sans',sans-serif; font-size:.74rem; color:var(--muted);
+            margin-top:18px; background:var(--card); border:1px solid var(--border);
+            border-radius:20px; padding:5px 14px;
+        }
         .legend-line { width:24px; height:2px; background:#e03e3e; border-radius:2px; }
 
-        /* SECTION WRAPPER */
+        /* ── SECTION ── */
         .section { padding:52px 64px; border-bottom:1px solid var(--border); }
         .section:last-of-type { border-bottom:none; }
-        .sec-label { font-family:'DM Sans',sans-serif; font-size:.68rem; letter-spacing:.2em; text-transform:uppercase; color:var(--rust); display:flex; align-items:center; gap:10px; margin-bottom:10px; }
-        .sec-label::before { content:''; width:22px; height:1.5px; background:var(--rust); }
-        .sec-title { font-family:'Playfair Display',serif; font-size:2.3rem; font-weight:700; line-height:1.15; margin-bottom:6px; }
-        .sec-title em { font-style:italic; color:var(--rust); }
-        .sec-desc { font-family:'DM Sans',sans-serif; font-size:.86rem; color:var(--muted); margin-bottom:32px; }
 
-        /* CARD */
+        .sec-label {
+            font-family:'DM Sans',sans-serif; font-size:.66rem; letter-spacing:.2em;
+            text-transform:uppercase; color:var(--rust);
+            display:flex; align-items:center; gap:10px; margin-bottom:10px;
+        }
+        .sec-label::before { content:''; width:22px; height:1.5px; background:var(--rust); }
+
+        .sec-point {
+            font-family:'DM Sans',sans-serif; font-size:.66rem; letter-spacing:.12em;
+            text-transform:uppercase; color:var(--muted);
+            background:var(--cream); border:1px solid var(--border);
+            border-radius:10px; padding:3px 10px; display:inline-block; margin-bottom:10px;
+        }
+
+        .sec-title { font-family:'Playfair Display',serif; font-size:2.2rem; font-weight:700; line-height:1.15; margin-bottom:6px; }
+        .sec-title em { font-style:italic; color:var(--rust); }
+        .sec-desc { font-family:'DM Sans',sans-serif; font-size:.84rem; color:var(--muted); margin-bottom:28px; }
+
+        /* ── CARDS & GRIDS ── */
         .card { background:var(--card); border:1px solid var(--border); border-radius:10px; padding:22px 26px; margin-bottom:14px; }
-        .card-title { font-family:'Playfair Display',serif; font-size:1.1rem; font-weight:700; margin-bottom:8px; }
-        .card p, .card li { font-size:.91rem; line-height:1.75; color:#3a3530; }
+        .card:last-child { margin-bottom:0; }
+        .card-title { font-family:'Playfair Display',serif; font-size:1.08rem; font-weight:700; margin-bottom:8px; }
+        .card p, .card li { font-size:.9rem; line-height:1.75; color:#3a3530; }
         .card ul, .card ol { padding-left:18px; }
         .card li { margin-bottom:4px; }
 
-        /* TWO-COL GRID */
         .two-col { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+        .three-col { display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px; }
 
-        /* PRO / CON CARDS */
+        /* ── PRO/CON ── */
         .procon { background:var(--card); border:1px solid var(--border); border-radius:10px; padding:22px; }
-        .procon-head { font-family:'DM Sans',sans-serif; font-size:.68rem; letter-spacing:.14em; text-transform:uppercase; display:inline-flex; align-items:center; gap:7px; padding:4px 11px; border-radius:12px; margin-bottom:16px; }
+        .procon-head {
+            font-family:'DM Sans',sans-serif; font-size:.66rem; letter-spacing:.14em;
+            text-transform:uppercase; display:inline-flex; align-items:center;
+            gap:7px; padding:4px 11px; border-radius:12px; margin-bottom:16px;
+        }
         .procon-head .dot { width:7px; height:7px; border-radius:50%; }
-        .pro .procon-head { background:rgba(74,103,65,.1); color:var(--sage); }
+        .pro .procon-head { background:var(--sage-light); color:var(--sage); }
         .pro .dot { background:var(--sage); }
-        .con .procon-head { background:rgba(192,86,42,.1); color:var(--rust); }
+        .con .procon-head { background:var(--rust-light); color:var(--rust); }
         .con .dot { background:var(--rust); }
         .procon ul { list-style:none; padding:0; }
-        .procon li { padding:9px 0; border-bottom:1px solid var(--border); font-size:.87rem; line-height:1.65; color:#3a3530; }
+        .procon li { padding:9px 0; border-bottom:1px solid var(--border); font-size:.86rem; line-height:1.65; color:#3a3530; }
         .procon li:last-child { border-bottom:none; }
-        .item-title { font-family:'DM Sans',sans-serif; font-weight:500; font-size:.84rem; color:var(--ink); margin-bottom:2px; }
-        .item-desc { font-size:.81rem; color:var(--muted); }
+        .item-title { font-family:'DM Sans',sans-serif; font-weight:500; font-size:.83rem; color:var(--ink); margin-bottom:2px; }
+        .item-desc { font-size:.8rem; color:var(--muted); line-height:1.55; }
 
-        /* NUMBERED ITEMS */
+        /* ── TEORI ── */
+        .teori-card { background:var(--card); border:1px solid var(--border); border-radius:8px; padding:16px 18px; }
+        .teori-name { font-family:'Playfair Display',serif; font-weight:700; font-size:1rem; margin-bottom:4px; }
+        .teori-env { font-family:'DM Sans',sans-serif; font-size:.68rem; text-transform:uppercase; letter-spacing:.1em; color:var(--rust); margin-bottom:6px; }
+        .teori-desc { font-size:.82rem; color:#3a3530; line-height:1.6; }
+
+        /* ── PERAN GURU ── */
+        .peran-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+        .peran-item { background:var(--card); border:1px solid var(--border); border-radius:8px; padding:13px 15px; }
+        .peran-title { font-family:'DM Sans',sans-serif; font-weight:500; font-size:.84rem; color:var(--ink); margin-bottom:2px; }
+        .peran-desc { font-size:.78rem; color:var(--muted); line-height:1.5; }
+
+        /* ── COMPARE TABLE ── */
+        .compare-table { width:100%; border-collapse:collapse; font-size:.86rem; margin-top:8px; }
+        .compare-table th { font-family:'DM Sans',sans-serif; font-size:.7rem; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); font-weight:500; padding:10px 14px; border-bottom:2px solid var(--border); text-align:left; }
+        .compare-table td { padding:10px 14px; border-bottom:1px solid var(--border); vertical-align:top; line-height:1.55; color:#3a3530; }
+        .compare-table tr:last-child td { border-bottom:none; }
+        .col-fi { color:var(--sage); }
+        .aspect-label { font-family:'DM Sans',sans-serif; font-weight:500; font-size:.83rem; color:var(--ink); }
+
+        /* ── NUMBERED ITEMS ── */
         .num-item { display:flex; gap:18px; padding:22px 0; border-bottom:1px solid var(--border); }
         .num-item:first-child { padding-top:0; }
         .num-item:last-child { border-bottom:none; padding-bottom:0; }
-        .big-num { font-family:'Playfair Display',serif; font-size:2.6rem; font-weight:900; color:var(--border); line-height:1; min-width:48px; padding-top:2px; flex-shrink:0; }
-        .num-tag { font-family:'DM Sans',sans-serif; font-size:.64rem; letter-spacing:.15em; text-transform:uppercase; color:var(--rust); margin-bottom:4px; }
-        .num-title { font-family:'Playfair Display',serif; font-size:1.1rem; font-weight:700; margin-bottom:6px; }
-        .num-body { font-size:.9rem; color:#3a3530; line-height:1.72; }
+        .big-num { font-family:'Playfair Display',serif; font-size:2.5rem; font-weight:900; color:var(--border); line-height:1; min-width:46px; padding-top:2px; flex-shrink:0; }
+        .num-tag { font-family:'DM Sans',sans-serif; font-size:.62rem; letter-spacing:.15em; text-transform:uppercase; color:var(--rust); margin-bottom:4px; }
+        .num-title { font-family:'Playfair Display',serif; font-size:1.08rem; font-weight:700; margin-bottom:6px; }
+        .num-body { font-size:.89rem; color:#3a3530; line-height:1.72; }
         .num-body ul { padding-left:16px; margin-top:6px; }
-        .num-body li { margin-bottom:3px; font-size:.87rem; }
+        .num-body li { margin-bottom:3px; font-size:.86rem; }
 
-        /* VUCA GRID */
-        .vuca-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:28px; }
-        .vuca-card { background:var(--card); border:1px solid var(--border); border-radius:10px; padding:22px; }
-        .vuca-letter { font-family:'Playfair Display',serif; font-size:3rem; font-weight:900; color:var(--border); line-height:1; margin-bottom:4px; }
-        .vuca-sub { font-family:'DM Sans',sans-serif; font-size:.74rem; color:var(--muted); margin-bottom:10px; }
-        .vuca-title { font-family:'Playfair Display',serif; font-size:1rem; font-weight:700; margin-bottom:6px; }
-        .vuca-body { font-size:.87rem; color:#3a3530; line-height:1.7; }
-        .solusi-tag { font-family:'DM Sans',sans-serif; font-size:.68rem; font-weight:500; text-transform:uppercase; letter-spacing:.1em; color:var(--rust); margin-top:10px; margin-bottom:4px; }
+        /* ── VUCA GRID ── */
+        .vuca-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:24px; }
+        .vuca-card { background:var(--card); border:1px solid var(--border); border-radius:10px; padding:20px; }
+        .vuca-letter { font-family:'Playfair Display',serif; font-size:2.8rem; font-weight:900; color:var(--border); line-height:1; margin-bottom:3px; }
+        .vuca-sub { font-family:'DM Sans',sans-serif; font-size:.72rem; color:var(--muted); margin-bottom:8px; }
+        .vuca-title { font-family:'Playfair Display',serif; font-size:.98rem; font-weight:700; margin-bottom:6px; }
+        .vuca-body { font-size:.85rem; color:#3a3530; line-height:1.68; }
+        .solusi-tag { font-family:'DM Sans',sans-serif; font-size:.65rem; font-weight:600; text-transform:uppercase; letter-spacing:.1em; color:var(--rust); margin-top:10px; margin-bottom:4px; }
 
-        /* COMPARE TABLE */
-        .compare-table { width:100%; border-collapse:collapse; font-size:.87rem; margin-top:8px; }
-        .compare-table th { font-family:'DM Sans',sans-serif; font-size:.72rem; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); font-weight:500; padding:10px 14px; border-bottom:2px solid var(--border); text-align:left; }
-        .compare-table td { padding:11px 14px; border-bottom:1px solid var(--border); vertical-align:top; line-height:1.55; color:#3a3530; }
-        .compare-table tr:last-child td { border-bottom:none; }
-        .compare-table .col-id { color:var(--ink); }
-        .compare-table .col-fi { color:var(--sage); }
-        .aspect-label { font-family:'DM Sans',sans-serif; font-weight:500; color:var(--ink); font-size:.84rem; }
+        /* ── FAKTA / DATA BLOCK ── */
+        .fakta-strip {
+            background: var(--ink);
+            border-radius: 10px;
+            padding: 22px 26px;
+            margin-bottom: 14px;
+            color: #fff;
+        }
+        .fakta-strip .fakta-label {
+            font-family:'DM Sans',sans-serif; font-size:.64rem;
+            letter-spacing:.18em; text-transform:uppercase;
+            color:var(--rust); margin-bottom:10px;
+            display:flex; align-items:center; gap:8px;
+        }
+        .fakta-strip .fakta-label::before { content:''; width:16px; height:1.5px; background:var(--rust); }
+        .fakta-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; margin-top:4px; }
+        .fakta-item { border-left:2px solid var(--rust); padding-left:12px; }
+        .fakta-num { font-family:'Playfair Display',serif; font-size:1.8rem; font-weight:900; color:var(--rust); line-height:1; margin-bottom:4px; }
+        .fakta-desc { font-family:'DM Sans',sans-serif; font-size:.78rem; color:rgba(255,255,255,.7); line-height:1.55; }
+        .fakta-note { font-family:'DM Sans',sans-serif; font-size:.72rem; color:rgba(255,255,255,.35); margin-top:14px; font-style:italic; }
 
-        /* PERAN GURU */
-        .peran-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
-        .peran-item { background:var(--card); border:1px solid var(--border); border-radius:8px; padding:14px 16px; }
-        .peran-title { font-family:'DM Sans',sans-serif; font-weight:500; font-size:.86rem; color:var(--ink); margin-bottom:3px; }
-        .peran-desc { font-size:.8rem; color:var(--muted); line-height:1.55; }
+        /* ── KRITIK SILA ── */
+        .sila-card { background:var(--card); border:1px solid var(--border); border-radius:10px; padding:20px 24px; margin-bottom:12px; display:grid; grid-template-columns:auto 1fr; gap:16px; align-items:start; }
+        .sila-badge { width:42px; height:42px; border-radius:50%; border:2px solid var(--border); display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:1.1rem; font-weight:700; color:var(--rust); flex-shrink:0; }
+        .sila-num-label { font-family:'DM Sans',sans-serif; font-size:.62rem; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); margin-bottom:4px; }
+        .sila-title { font-family:'Playfair Display',serif; font-size:1rem; font-weight:700; margin-bottom:8px; }
+        .sila-body { font-size:.87rem; color:#3a3530; line-height:1.72; }
+        .sila-pts { padding-left:16px; margin-top:6px; }
+        .sila-pts li { margin-bottom:4px; font-size:.84rem; }
+        .kritik-tag { font-family:'DM Sans',sans-serif; font-size:.64rem; font-weight:600; text-transform:uppercase; letter-spacing:.1em; color:var(--rust); margin-top:10px; margin-bottom:4px; }
+        .kritik-body { font-size:.84rem; color:var(--muted); line-height:1.65; font-style:italic; border-left:2px solid var(--border); padding-left:10px; margin-top:6px; }
 
-        /* TEORI */
-        .teori-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
-        .teori-card { background:var(--card); border:1px solid var(--border); border-radius:8px; padding:14px 16px; }
-        .teori-name { font-family:'Playfair Display',serif; font-weight:700; font-size:1rem; margin-bottom:4px; }
-        .teori-env { font-family:'DM Sans',sans-serif; font-size:.7rem; text-transform:uppercase; letter-spacing:.1em; color:var(--rust); margin-bottom:6px; }
-        .teori-desc { font-size:.83rem; color:#3a3530; line-height:1.6; }
+        /* ── STRATEGI ── */
+        .strategi-item { display:flex; gap:18px; padding:22px 0; border-bottom:1px solid var(--border); align-items:flex-start; }
+        .strategi-item:first-child { padding-top:0; }
+        .strategi-item:last-child { border-bottom:none; padding-bottom:0; }
+        .strategi-num { font-family:'DM Sans',sans-serif; font-size:.7rem; font-weight:600; color:var(--muted); min-width:22px; padding-top:2px; }
+        .strategi-tag { font-family:'DM Sans',sans-serif; font-size:.63rem; letter-spacing:.14em; text-transform:uppercase; color:var(--rust); margin-bottom:4px; }
+        .strategi-title { font-family:'Playfair Display',serif; font-size:1.05rem; font-weight:700; margin-bottom:6px; }
+        .strategi-body { font-size:.88rem; color:#3a3530; line-height:1.72; }
 
-        /* PANCASILA SILA */
-        .sila-card { background:var(--card); border:1px solid var(--border); border-radius:10px; padding:22px 26px; margin-bottom:12px; display:grid; grid-template-columns:auto 1fr; gap:18px; align-items:start; }
-        .sila-badge { width:44px; height:44px; border-radius:50%; border:2px solid var(--border); display:flex; align-items:center; justify-content:center; font-family:'Playfair Display',serif; font-size:1.15rem; font-weight:700; color:var(--rust); flex-shrink:0; }
-        .sila-num-label { font-family:'DM Sans',sans-serif; font-size:.64rem; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); margin-bottom:4px; }
-        .sila-title { font-family:'Playfair Display',serif; font-size:1.05rem; font-weight:700; margin-bottom:8px; }
-        .sila-body { font-size:.88rem; color:#3a3530; line-height:1.72; }
-        .sila-pts { padding-left:16px; margin-top:7px; }
-        .sila-pts li { margin-bottom:4px; font-size:.85rem; }
+        /* ── REFLEKSI BOX ── */
+        .refleksi-box {
+            border:1.5px solid var(--border); border-radius:10px;
+            padding:28px 30px; margin-bottom:16px;
+            position:relative;
+        }
+        .refleksi-box::before {
+            content:'"';
+            font-family:'Playfair Display',serif;
+            font-size:6rem; font-weight:900;
+            color:var(--border); line-height:0.7;
+            position:absolute; top:20px; left:18px;
+        }
+        .refleksi-text { font-size:.93rem; color:#3a3530; line-height:1.8; padding-left:36px; }
+        .refleksi-text strong { color:var(--ink); }
 
-        /* INTEGRASI STEPS */
-        .step-list { counter-reset:step; }
-        .step { display:flex; gap:16px; padding:18px 0; border-bottom:1px solid var(--border); align-items:flex-start; }
+        /* ── INTEGRASI STEPS ── */
+        .step { display:flex; gap:14px; padding:16px 0; border-bottom:1px solid var(--border); align-items:flex-start; }
         .step:last-child { border-bottom:none; padding-bottom:0; }
-        .step-num { font-family:'DM Sans',sans-serif; font-size:.7rem; font-weight:500; color:var(--muted); min-width:22px; padding-top:2px; }
-        .step-body { font-size:.89rem; color:#3a3530; line-height:1.7; }
-        .step-title { font-family:'DM Sans',sans-serif; font-weight:500; color:var(--ink); font-size:.9rem; margin-bottom:3px; }
+        .step-num { font-family:'DM Sans',sans-serif; font-size:.68rem; font-weight:600; color:var(--muted); min-width:20px; padding-top:2px; }
+        .step-title { font-family:'DM Sans',sans-serif; font-weight:500; color:var(--ink); font-size:.88rem; margin-bottom:3px; }
+        .step-body { font-size:.86rem; color:#3a3530; line-height:1.68; }
 
-        /* FOOTER */
+        /* ── FOOTER ── */
         .footer { padding:40px 64px; background:var(--cream); border-top:1px solid var(--border); text-align:center; }
-        .footer p { font-family:'DM Sans',sans-serif; font-size:.8rem; color:var(--muted); line-height:1.85; }
+        .footer p { font-family:'DM Sans',sans-serif; font-size:.78rem; color:var(--muted); line-height:1.9; }
         .footer strong { color:var(--ink); }
 
         @media(max-width:640px){
+            .identity-strip { padding:14px 22px; }
             .section,.cover { padding:36px 22px; }
-            .cover h1 { font-size:2.6rem; }
-            .sec-title { font-size:1.9rem; }
-            .two-col,.procon-grid,.vuca-grid,.peran-grid,.teori-grid { grid-template-columns:1fr; }
+            .cover h1 { font-size:2.5rem; }
+            .sec-title { font-size:1.8rem; }
+            .two-col,.three-col,.vuca-grid,.peran-grid,.fakta-grid { grid-template-columns:1fr; }
             .footer { padding:30px 22px; }
         }
     </style>
@@ -153,360 +254,376 @@
 <body>
 <div class="page">
 
-<!-- ══ COVER ══════════════════════════════════════════ -->
+<!-- ══ IDENTITY STRIP ════════════════════════════════ -->
+<div class="identity-strip">
+    <div class="id-group">
+        <div class="id-label">Nama Lengkap</div>
+        <div class="id-value placeholder">[Nama Lengkap]</div>
+    </div>
+    <div class="id-divider"></div>
+    <div class="id-group">
+        <div class="id-label">NIM</div>
+        <div class="id-value placeholder">[NIM]</div>
+    </div>
+    <div class="id-divider"></div>
+    <div class="id-group">
+        <div class="id-label">Program Studi</div>
+        <div class="id-value">S-1 Rekayasa Perangkat Lunak</div>
+    </div>
+    <div class="id-divider"></div>
+    <div class="id-group">
+        <div class="id-label">Angkatan</div>
+        <div class="id-value placeholder">[Tahun]</div>
+    </div>
+    <div class="id-divider"></div>
+    <div class="id-group">
+        <div class="id-label">Mata Kuliah</div>
+        <div class="id-value">Landasan Pendidikan</div>
+    </div>
+</div>
+
+<!-- ══ COVER ═════════════════════════════════════════ -->
 <div class="cover">
-    <div class="eyebrow">Infografis · PPT Laspen Kel. 10</div>
+    <div class="eyebrow">Infografis Edukatif · UTS Landasan Pendidikan 2026</div>
     <h1>Landasan<br><em>Pendidikan</em><br>di Era <em>Modern</em></h1>
-    <p class="cover-sub">Analisis komprehensif dasar-dasar teori pendidikan, kompetensi guru, dan peran landasan pendidikan dalam menghadapi Revolusi Industri 4.0, Masyarakat 5.0, Era VUCA, serta implementasi nilai Pancasila.</p>
-    <div class="badges">
+    <p class="cover-sub">Refleksi, analisis kritis, dan strategi menghadapi Revolusi Industri 4.0, Society 5.0, serta tantangan Era VUCA — berlandaskan nilai-nilai Pancasila dan lima landasan pendidikan Indonesia.</p>
+    <div class="cover-badges">
         <span class="badge badge-fill">UTS Landasan Pendidikan</span>
-        <span class="badge badge-line">Kelompok 10</span>
-        <span class="badge badge-line">S-1 RPL · UPI Cibiru · 2026</span>
+        <span class="badge badge-line">Dr. Yusuf Tri Herlambang, M.Pd.</span>
+        <span class="badge badge-line">UPI Kampus Cibiru · 2026</span>
     </div>
     <div>
         <div class="legend"><div class="legend-line"></div> Kata bergarisbawah merah = <span class="ai">koreksi / tambahan AI</span></div>
     </div>
 </div>
 
-<!-- ══ POINT 1A: DASAR-DASAR TEORI ════════════════════ -->
+<!-- ══ POIN A: REFLEKSI ══════════════════════════════ -->
 <div class="section">
-    <div class="sec-label">Dasar-Dasar Pendidikan</div>
-    <h2 class="sec-title">Teori &amp; <em>Lingkungan</em><br>Pendidikan</h2>
-    <p class="sec-desc">Sumber: PPT_Laspen_Kel_10_Summaries.txt — Halaman 2–11</p>
+    <div class="sec-label">Infografis</div>
+    <div class="sec-point">Poin A</div>
+    <h2 class="sec-title">Refleksi <em>Pemahaman</em><br>Landasan Pendidikan</h2>
+    <p class="sec-desc">Membangun wawasan, karakter, dan kesiapan sebagai agen perubahan sosial serta calon pendidik masa depan</p>
 
-    <p style="font-size:.91rem;color:#3a3530;line-height:1.75;margin-bottom:24px;">
-        Presentasi ini membangun konsep lingkungan pendidikan sebagai sistem kompleks tempat proses belajar terjadi melalui interaksi antara keluarga, sekolah, dan masyarakat, dengan mengutip <strong>Ki Hajar Dewantara</strong>. Teori pendidikan didefinisikan menurut <strong>Dagobert Runnes</strong> sebagai hipotesa yang dapat diuji yang memberikan arah bagi tujuan pendidikan.
-    </p>
+    <div class="refleksi-box">
+        <p class="refleksi-text">
+            Mempelajari Mata Kuliah Landasan Pendidikan membuka kesadaran bahwa pendidikan bukan sekadar transfer pengetahuan — melainkan proses pembentukan manusia seutuhnya. Melalui pemahaman tentang teori-teori pembelajaran, fungsi lembaga pendidikan, dan peran multidimensi guru, saya menyadari bahwa <strong>seorang calon pendidik harus hadir bukan hanya sebagai pengajar, tetapi sebagai pendidik, pembimbing, teladan, motivator, dan agen perubahan sosial</strong> yang secara aktif meningkatkan kualitas masyarakat melalui pendidikan.
+        </p>
+    </div>
 
-    <!-- 4 Teori -->
-    <div class="teori-grid" style="margin-bottom:24px;">
+    <div class="two-col">
+        <div class="card">
+            <div class="card-title">Wawasan yang Dibangun</div>
+            <ul>
+                <li>Pendidikan terjadi dalam ekosistem kompleks: keluarga, sekolah, dan masyarakat (Ki Hajar Dewantara)</li>
+                <li>Teori pendidikan menurut Dagobert Runnes adalah hipotesa yang dapat diuji — praktik harus berbasis bukti, bukan tradisi semata</li>
+                <li>Empat teori pembelajaran (Behaviorisme, Kognitivisme, Humanisme, Konstruktivisme) saling melengkapi, bukan saling menggantikan</li>
+                <li>Pedagogik (teori) dan pedagogi (praktik) harus berjalan seiring</li>
+            </ul>
+        </div>
+        <div class="card">
+            <div class="card-title">Kesiapan sebagai Calon Pendidik</div>
+            <ul>
+                <li><strong>Pendidik:</strong> Membentuk karakter dan nilai moral</li>
+                <li><strong>Pembimbing:</strong> Mengembangkan potensi, minat, dan bakat secara optimal</li>
+                <li><strong>Teladan:</strong> Mencontohkan sikap, perilaku, dan etika baik</li>
+                <li><strong>Motivator:</strong> Memberi dorongan dan semangat belajar</li>
+                <li><strong>Agen Perubahan Sosial:</strong> Meningkatkan kualitas masyarakat melalui pendidikan</li>
+                <li><strong>Evaluator:</strong> Melakukan penilaian untuk mengukur proses dan hasil belajar</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Teori Pembelajaran -->
+    <p style="font-family:'DM Sans',sans-serif;font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin:24px 0 12px;">Empat Teori Pembelajaran &amp; Penerapannya</p>
+    <div class="two-col">
         <div class="teori-card">
             <div class="teori-name">Behaviorisme</div>
-            <div class="teori-env">↳ Sekolah (reward)</div>
-            <p class="teori-desc">Perilaku yang dapat diamati; hubungan stimulus-respons. Diterapkan melalui penguatan positif dan reward di lingkungan sekolah.</p>
+            <div class="teori-env">↳ Sekolah — reward &amp; penguatan</div>
+            <p class="teori-desc">Perilaku yang dapat diamati; hubungan stimulus-respons. Diterapkan melalui penguatan positif dan rutinitas belajar.</p>
         </div>
         <div class="teori-card">
             <div class="teori-name">Kognitivisme</div>
-            <div class="teori-env">↳ Sekolah (proses berpikir)</div>
-            <p class="teori-desc">Proses berpikir dan konstruksi pengetahuan. Relevan untuk pengembangan keterampilan berpikir kritis dan analitis.</p>
+            <div class="teori-env">↳ Sekolah — proses berpikir</div>
+            <p class="teori-desc">Proses berpikir dan konstruksi pengetahuan. Relevan untuk pengembangan keterampilan kritis dan analitis.</p>
         </div>
         <div class="teori-card">
             <div class="teori-name">Humanisme</div>
-            <div class="teori-env">↳ Keluarga (perkembangan diri)</div>
-            <p class="teori-desc">Potensi manusia, kepribadian, dan hubungan antar-manusia. Diterapkan melalui modeling nilai dan pendekatan emosional di keluarga.</p>
+            <div class="teori-env">↳ Keluarga — perkembangan diri</div>
+            <p class="teori-desc">Potensi manusia, kepribadian, dan hubungan antar-manusia. Diterapkan melalui modeling nilai dan pendekatan emosional.</p>
         </div>
         <div class="teori-card">
             <div class="teori-name">Konstruktivisme</div>
-            <div class="teori-env">↳ Masyarakat (pengalaman langsung)</div>
-            <p class="teori-desc">Pengetahuan yang dibangun individu melalui pengalaman dan interaksi dengan realitas. Diwujudkan lewat pembelajaran berbasis proyek komunitas.</p>
+            <div class="teori-env">↳ Masyarakat — pengalaman langsung</div>
+            <p class="teori-desc">Pengetahuan yang dibangun individu melalui pengalaman dan interaksi dengan realitas. Diwujudkan lewat proyek komunitas.</p>
         </div>
-    </div>
-
-    <!-- Fungsi Lembaga -->
-    <div class="card">
-        <div class="card-title">Fungsi Lembaga Pendidikan</div>
-        <div class="two-col" style="gap:18px;margin-top:4px;">
-            <div>
-                <p style="font-family:'DM Sans',sans-serif;font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;color:var(--rust);margin-bottom:6px;">Sekolah</p>
-                <ul><li>Sosialisasi</li><li>Transmisi budaya</li><li>Seleksi</li><li>Pengembangan kemampuan</li><li>Arena interaksi sosial</li></ul>
-            </div>
-            <div>
-                <p style="font-family:'DM Sans',sans-serif;font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;color:var(--rust);margin-bottom:6px;">Keluarga</p>
-                <ul><li>Afeksi, edukasi, proteksi</li><li>Religius, sosial, ekonomi</li></ul>
-                <p style="font-family:'DM Sans',sans-serif;font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;color:var(--rust);margin:10px 0 6px;">Masyarakat</p>
-                <ul><li>Sosialisasi, transmisi budaya</li><li>Regulasi, integrasi</li></ul>
-            </div>
-        </div>
-    </div>
-
-    <!-- Implikasi Praktis -->
-    <div class="card" style="margin-top:0;">
-        <div class="card-title">Implikasi Praktis</div>
-        <ul>
-            <li>Belajar melalui permainan dan penguatan positif</li>
-            <li>Modeling nilai dan pendekatan konstruktivis di rumah</li>
-            <li>Pembelajaran berbasis proyek komunitas</li>
-            <li>Program literasi humanistik</li>
-            <li>Pembangunan pengetahuan kolektif melalui diskusi dan kolaborasi</li>
-        </ul>
     </div>
 </div>
 
-<!-- ══ POINT 1B: KOMPETENSI GURU ══════════════════════ -->
+<!-- ══ POIN B: ANALISIS KRITIS IPTEK ════════════════ -->
 <div class="section">
-    <div class="sec-label">Halaman 12–17</div>
-    <h2 class="sec-title">Kompetensi Guru &amp;<br><em>Perspektif Global</em></h2>
-    <p class="sec-desc">Sumber: PPT_Laspen_Kel_10_Summaries.txt</p>
+    <div class="sec-label">Infografis</div>
+    <div class="sec-point">Poin B</div>
+    <h2 class="sec-title">Analisis Kritis:<br><em>IPTEK &amp; Pergeseran Nilai</em></h2>
+    <p class="sec-desc">Dampak perkembangan ilmu pengetahuan dan teknologi terhadap pergeseran nilai kehidupan bangsa Indonesia di era modern</p>
 
-    <p style="font-size:.91rem;color:#3a3530;line-height:1.75;margin-bottom:24px;">
-        Guru memiliki peran strategis yang memerlukan pemahaman tentang <strong>pedagogik</strong> (teori) dan <strong>pedagogi</strong> (praktik). Kompetensi utama meliputi pengembangan holistik peserta didik (kognitif, afektif, psikomotor), memahami karakteristik peserta didik, perancangan pembelajaran sistematis, serta membimbing peserta didik untuk berpikir kritis, mandiri, dan aktif.
-    </p>
-
-    <!-- Peran Guru -->
-    <div class="card" style="margin-bottom:20px;">
-        <div class="card-title">Peran Guru (Arti Luas)</div>
-        <div class="peran-grid" style="margin-top:10px;">
-            <div class="peran-item">
-                <div class="peran-title">Pendidik</div>
-                <div class="peran-desc">Membentuk karakter dan nilai moral</div>
-            </div>
-            <div class="peran-item">
-                <div class="peran-title">Pembimbing</div>
-                <div class="peran-desc">Mengembangkan potensi, minat, dan bakat secara optimal</div>
-            </div>
-            <div class="peran-item">
-                <div class="peran-title">Teladan (Role Model)</div>
-                <div class="peran-desc">Mencontohkan sikap, perilaku, dan etika baik</div>
-            </div>
-            <div class="peran-item">
-                <div class="peran-title">Motivator</div>
-                <div class="peran-desc">Memberi dorongan dan semangat belajar</div>
-            </div>
-            <div class="peran-item">
-                <div class="peran-title">Agen Perubahan Sosial</div>
-                <div class="peran-desc">Meningkatkan kualitas masyarakat melalui pendidikan</div>
-            </div>
-            <div class="peran-item">
-                <div class="peran-title">Perencana Pembelajaran</div>
-                <div class="peran-desc">Menyusun tujuan, materi, metode, dan media secara sistematis</div>
-            </div>
-            <div class="peran-item">
-                <div class="peran-title">Pelaksana Pembelajaran</div>
-                <div class="peran-desc">Mengelola kegiatan belajar-mengajar agar efektif dan kondusif</div>
-            </div>
-            <div class="peran-item">
-                <div class="peran-title">Evaluator</div>
-                <div class="peran-desc">Melakukan penilaian untuk mengukur proses dan hasil belajar</div>
-            </div>
-            <div class="peran-item">
-                <div class="peran-title">Pengelola Kelas</div>
-                <div class="peran-desc">Menciptakan lingkungan belajar yang tertib, nyaman, dan mendukung</div>
-            </div>
-            <div class="peran-item">
-                <div class="peran-title">Pengajar</div>
-                <div class="peran-desc">Menyampaikan materi sesuai kurikulum yang berlaku</div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Perbandingan Finlandia -->
-    <div class="card">
-        <div class="card-title">Perbandingan Indonesia vs Finlandia</div>
-        <p style="font-size:.82rem;color:var(--muted);font-family:'DM Sans',sans-serif;margin-bottom:12px;">Model Finlandia: berbasis kesetaraan (bukan kompetisi), ujian standar minimal, otonomi guru tinggi, pendidikan gratis &amp; inklusif.</p>
-        <table class="compare-table">
-            <thead>
-                <tr>
-                    <th>Aspek</th>
-                    <th>🇮🇩 Indonesia</th>
-                    <th>🇫🇮 Finlandia</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr><td><span class="aspect-label">Kualifikasi Guru</span></td><td class="col-id">S1 minimum</td><td class="col-fi">S2 wajib</td></tr>
-                <tr><td><span class="aspect-label">Sistem Evaluasi</span></td><td class="col-id">Ujian &amp; ranking</td><td class="col-fi">Ujian minimal</td></tr>
-                <tr><td><span class="aspect-label">Jam Belajar</span></td><td class="col-id">±40 jam/minggu</td><td class="col-fi">±30 jam/minggu</td></tr>
-                <tr><td><span class="aspect-label">Pendekatan</span></td><td class="col-id">Teacher-centered</td><td class="col-fi">Student-centered</td></tr>
-                <tr><td><span class="aspect-label">Biaya Pendidikan</span></td><td class="col-id">Sebagian ditanggung siswa</td><td class="col-fi">Gratis penuh</td></tr>
-                <tr><td><span class="aspect-label">Fokus</span></td><td class="col-id">Nilai &amp; kompetisi</td><td class="col-fi">Kesetaraan &amp; perkembangan</td></tr>
-            </tbody>
-        </table>
-        <p style="font-size:.8rem;color:var(--muted);font-family:'DM Sans',sans-serif;margin-top:12px;font-style:italic;">Catatan: Model Finlandia tidak bisa langsung ditiru — perbedaan budaya, jumlah penduduk (~5 juta), dan kondisi ekonomi menjadi pembatas.</p>
-    </div>
-</div>
-
-<!-- ══ POINT 1C: ASPEK POSITIF & NEGATIF ═════════════ -->
-<div class="section">
-    <div class="sec-label">Point 1 — Analisis</div>
-    <h2 class="sec-title">Aspek Positif &amp;<br><em>Negatif</em> Presentasi</h2>
-    <p class="sec-desc">Sumber: PPT_Laspen_Kel_10_Analysis.txt &amp; PPT_Laspen_Kel_10_Point1_Elaborasi.txt</p>
-
-    <div class="two-col">
-        <!-- POSITIF -->
+    <div class="two-col" style="margin-bottom:16px;">
         <div class="procon pro">
-            <div class="procon-head"><span class="dot"></span> Aspek Positif</div>
+            <div class="procon-head"><span class="dot"></span> Dampak Positif IPTEK</div>
+            <ul>
+                <li>
+                    <div class="item-title">Akses Informasi Tanpa Batas</div>
+                    <div class="item-desc">Informasi tersedia lebih cepat dan melampaui batas geografis — demokratisasi pengetahuan bagi daerah terpencil.</div>
+                </li>
+                <li>
+                    <div class="item-title">Pembelajaran Digital</div>
+                    <div class="item-desc">Platform e-learning memperluas jangkauan pendidikan formal; pembelajaran tidak lagi terbatas ruang dan waktu.</div>
+                </li>
+                <li>
+                    <div class="item-title">Inovasi Pedagogis</div>
+                    <div class="item-desc">Teknologi mendorong metode pengajaran adaptif dan kreatif — dari adaptive learning hingga gamifikasi.</div>
+                </li>
+                <li>
+                    <div class="item-title">Kolaborasi Global</div>
+                    <div class="item-desc">Siswa dapat berkolaborasi lintas negara, membangun pengetahuan kolektif melalui diskusi digital.</div>
+                </li>
+            </ul>
+        </div>
+        <div class="procon con">
+            <div class="procon-head"><span class="dot"></span> Pergeseran Nilai yang Mengkhawatirkan</div>
+            <ul>
+                <li>
+                    <div class="item-title">Degradasi Sosial</div>
+                    <div class="item-desc">Menurunnya kualitas interaksi tatap muka dan empati interpersonal — gotong royong dan kebersamaan tergerus individualisme digital.</div>
+                </li>
+                <li>
+                    <div class="item-title">Erosi Budaya Lokal</div>
+                    <div class="item-desc">Nilai-nilai lokal tergerus dominasi konten digital global; generasi muda kehilangan akar kearifan lokal.</div>
+                </li>
+                <li>
+                    <div class="item-title">Ketergantungan Teknologi</div>
+                    <div class="item-desc">Siswa kehilangan kemampuan berpikir mandiri tanpa teknologi; daya juang dan ketahanan mental melemah.</div>
+                </li>
+                <li>
+                    <div class="item-title">Kesenjangan Digital</div>
+                    <div class="item-desc">Akses teknologi yang timpang memperparah ketidakadilan — siswa daerah 3T semakin tertinggal dari siswa kota.</div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Analisis Aspek PPT -->
+    <div class="two-col">
+        <div class="procon pro">
+            <div class="procon-head"><span class="dot"></span> Aspek Positif PPT Laspen Kel. 10</div>
             <ul>
                 <li>
                     <div class="item-title">Pendekatan Holistik Lingkungan Pendidikan</div>
-                    <div class="item-desc">Membangun konsep lingkungan pendidikan sebagai sistem kompleks terintegrasi — keluarga, sekolah, dan masyarakat — bukan hanya fokus akademis.</div>
+                    <div class="item-desc">Membangun konsep lingkungan pendidikan sebagai sistem kompleks terintegrasi — keluarga, sekolah, dan masyarakat.</div>
                 </li>
                 <li>
                     <div class="item-title">Pengakuan Teori sebagai Landasan</div>
-                    <div class="item-desc">Menegaskan bahwa praktik pendidikan harus didasarkan pada bukti dan pemahaman teoretis, bukan hanya intuisi atau tradisi.</div>
-                </li>
-                <li>
-                    <div class="item-title">Pembahasan Teori Pembelajaran Beragam</div>
-                    <div class="item-desc">Mencakup empat teori utama (Behaviorisme, Kognitivisme, Humanisme, Konstruktivisme) yang memungkinkan pendekatan fleksibel dan responsif.</div>
+                    <div class="item-desc">Menegaskan praktik pendidikan harus didasarkan pada bukti dan pemahaman teoretis, bukan hanya intuisi atau tradisi.</div>
                 </li>
                 <li>
                     <div class="item-title">Kompetensi Guru Komprehensif</div>
                     <div class="item-desc">Mengidentifikasi tiga domain kompetensi: kognitif, afektif, dan psikomotor — bukan hanya pengetahuan materi.</div>
                 </li>
                 <li>
-                    <div class="item-title">Peran Multidimensi Guru</div>
-                    <div class="item-desc">Mengangkat peran guru yang jauh lebih luas dari sekadar penyampai materi: pendidik, pembimbing, teladan, motivator, dan agen perubahan sosial.</div>
+                    <div class="item-title">Perspektif Global — Benchmark Finlandia</div>
+                    <div class="item-desc">Perbandingan dengan sistem Finlandia memberi inspirasi dan mengidentifikasi area perbaikan spesifik untuk Indonesia.</div>
                 </li>
                 <li>
-                    <div class="item-title">Perspektif Global — Benchmark Finlandia</div>
-                    <div class="item-desc">Perbandingan dengan sistem Finlandia yang konsisten meraih peringkat tinggi PISA memberi inspirasi dan mengidentifikasi area perbaikan spesifik.</div>
+                    <div class="item-title">Peran Multidimensi Guru</div>
+                    <div class="item-desc">Mengangkat peran guru yang jauh lebih luas dari sekadar pengajar: pendidik, pembimbing, teladan, motivator, dan agen perubahan.</div>
                 </li>
                 <li>
                     <div class="item-title">Fokus Integrasi Teori dan Praktik</div>
-                    <div class="item-desc">Penekanan pada hubungan pedagogik (teori) dan pedagogi (praktik) menciptakan siklus umpan balik yang penting bagi guru yang reflektif.</div>
+                    <div class="item-desc">Penekanan pada hubungan pedagogik (teori) dan pedagogi (praktik) menciptakan siklus umpan balik bagi guru yang reflektif.</div>
                 </li>
             </ul>
         </div>
-        <!-- NEGATIF -->
         <div class="procon con">
-            <div class="procon-head"><span class="dot"></span> Aspek Negatif</div>
+            <div class="procon-head"><span class="dot"></span> Aspek Negatif PPT Laspen Kel. 10</div>
             <ul>
                 <li>
                     <div class="item-title">Kurangnya Spesifikasi Integrasi Teori</div>
-                    <div class="item-desc">Tidak ada panduan konkret tentang bagaimana seorang guru mengintegrasikan keempat teori dalam satu kesatuan koheren di kelas.</div>
+                    <div class="item-desc">Tidak ada panduan konkret tentang bagaimana guru mengintegrasikan keempat teori dalam satu kesatuan koheren di kelas.</div>
                 </li>
                 <li>
-                    <div class="item-title">Kurangnya Strategi Mengatasi Kesenjangan Teori–Praktik</div>
-                    <div class="item-desc">Tidak menyebutkan lesson study, reflective practice, mentoring, atau teaching school model sebagai jembatan antara teori dan realitas kelas.</div>
+                    <div class="item-title">Kurangnya Strategi Kesenjangan Teori–Praktik</div>
+                    <div class="item-desc">Tidak menyebutkan lesson study, reflective practice, mentoring, atau teaching school model sebagai jembatan.</div>
                 </li>
                 <li>
-                    <div class="item-title">Kurangnya Penekanan Teknologi &amp; Inovasi</div>
-                    <div class="item-desc">Terlalu konservatif dalam pendekatan terhadap teknologi; tidak membahas adaptive learning, blended learning, atau analisis data untuk pembelajaran personal.</div>
+                    <div class="item-title">Teknologi Kurang Dibahas Mendalam</div>
+                    <div class="item-desc">Terlalu konservatif — tidak membahas adaptive learning, blended learning, atau analisis data untuk pembelajaran personal.</div>
                 </li>
                 <li>
-                    <div class="item-title">Kurangnya Pembahasan Tantangan Implementasi</div>
-                    <div class="item-desc">Tidak mempertimbangkan beban kerja guru yang tinggi, kelas overcrowded, sumber terbatas, dan tekanan ujian nasional yang menyulitkan penerapan ideal.</div>
+                    <div class="item-title">Tantangan Implementasi Terabaikan</div>
+                    <div class="item-desc">Tidak mempertimbangkan beban kerja guru, kelas overcrowded, sumber terbatas, dan tekanan ujian nasional.</div>
                 </li>
                 <li>
-                    <div class="item-title">Pendekatan Terlalu Teoretis</div>
-                    <div class="item-desc">Kurang contoh konkret, studi kasus, atau template yang dapat langsung diadaptasi guru dalam situasi kelas nyata sehari-hari.</div>
+                    <div class="item-title">Terlalu Teoretis</div>
+                    <div class="item-desc">Kurang contoh konkret atau studi kasus yang dapat langsung diadaptasi guru dalam situasi kelas nyata.</div>
                 </li>
                 <li>
-                    <div class="item-title">Kurangnya Diskusi Evaluasi &amp; Pengukuran</div>
-                    <div class="item-desc">Tidak membahas indikator keberhasilan, alat penilaian untuk kreativitas atau kecerdasan emosional, atau pemanfaatan data penilaian untuk perbaikan.</div>
-                </li>
-                <li>
-                    <div class="item-title">Kurangnya Pembahasan Inklusi &amp; Aksesibilitas</div>
-                    <div class="item-desc">Tidak mencakup peserta didik berkebutuhan khusus, latar belakang bahasa/budaya berbeda, atau prinsip Universal Design for Learning (UDL).</div>
+                    <div class="item-title">Inklusi &amp; Aksesibilitas Terabaikan</div>
+                    <div class="item-desc">Tidak mencakup peserta didik berkebutuhan khusus atau prinsip Universal Design for Learning (UDL).</div>
                 </li>
             </ul>
         </div>
     </div>
 </div>
 
-<!-- ══ POINT 2: 4.0 / 5.0 / VUCA ═════════════════════ -->
+<!-- ══ POIN C: PERAN LANDASAN PENDIDIKAN ════════════ -->
 <div class="section">
-    <div class="sec-label">Point 2 — Landasan Pendidikan</div>
-    <h2 class="sec-title">Revolusi 4.0, <em>Society 5.0</em><br>&amp; Era <em>VUCA</em></h2>
-    <p class="sec-desc">Sumber: PPT_Laspen_Kel_10_Analysis.txt &amp; PPT_Laspen_Kel_10_Analysis_Summary_Point2.txt</p>
+    <div class="sec-label">Infografis</div>
+    <div class="sec-point">Poin C</div>
+    <h2 class="sec-title">Peran <em>Landasan Pendidikan</em><br>di Era 4.0, 5.0 &amp; VUCA</h2>
+    <p class="sec-desc">Mempertahankan dan mengembangkan nilai-nilai kehidupan bangsa di tengah arus perubahan</p>
 
-    <!-- Revolusi 4.0 -->
-    <div style="margin-bottom:28px;">
-        <div class="num-item">
-            <div class="big-num">01</div>
-            <div>
-                <div class="num-tag">Revolusi Industri 4.0</div>
-                <div class="num-title">Peran Landasan Pendidikan dalam Menghadapi 4.0</div>
-                <div class="num-body">
-                    Otomatisasi dan digitalisasi yang meningkat memerlukan perubahan signifikan dalam kurikulum dan metode pembelajaran. Landasan pendidikan harus:
-                    <ul>
-                        <li><strong>Adaptasi Kurikulum:</strong> Mengintegrasikan literasi data, pemrograman, dan pemikiran komputasional</li>
-                        <li><strong>Pergeseran Fokus:</strong> Dari pengetahuan fakta murni ke keterampilan berpikir kritis, kreativitas, dan kolaborasi</li>
-                        <li><strong>Tenaga Kerja Adaptif:</strong> Menyesuaikan diri dengan kebutuhan akan tenaga kerja yang adaptif dan inovatif, kemampuan belajar terus-menerus dan fleksibilitas berpikir</li>
-                        <li><strong>Integrasi Teknologi:</strong> Memungkinkan adopsi dan pemanfaatan AI, IoT, dan big data dalam konteks pendidikan</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <div class="num-item">
-            <div class="big-num">02</div>
-            <div>
-                <div class="num-tag">Masyarakat 5.0</div>
-                <div class="num-title">Peran Landasan Pendidikan dalam Visi 5.0</div>
-                <div class="num-body">
-                    Masyarakat yang berorientasi pada nilai kemanusiaan dengan teknologi sebagai alat untuk meningkatkan kualitas hidup — bukan sebagai ganti nilai kemanusiaan. Landasan pendidikan harus:
-                    <ul>
-                        <li><strong>Pembentukan Karakter:</strong> Menekankan nilai-nilai kemanusiaan sejalan dengan visi Masyarakat 5.0</li>
-                        <li><strong>Pembelajaran Holistik:</strong> Tidak hanya mengasah kemampuan teknis, tetapi juga mengembangkan empati, etika, dan tanggung jawab sosial</li>
-                        <li>Berfokus pada kesejahteraan secara holistik: fisik, mental, sosial, dan spiritual</li>
-                    </ul>
-                </div>
+    <div class="num-item">
+        <div class="big-num">01</div>
+        <div>
+            <div class="num-tag">Revolusi Industri 4.0</div>
+            <div class="num-title">Peran Landasan Pendidikan dalam Menghadapi 4.0</div>
+            <div class="num-body">
+                Otomatisasi dan digitalisasi yang meningkat memerlukan perubahan signifikan dalam kurikulum dan metode pembelajaran. Landasan pendidikan harus:
+                <ul>
+                    <li><strong>Adaptasi Kurikulum:</strong> Mengintegrasikan literasi data, pemrograman, dan pemikiran komputasional</li>
+                    <li><strong>Pergeseran Fokus:</strong> Dari pengetahuan fakta murni ke keterampilan berpikir kritis, kreativitas, dan kolaborasi</li>
+                    <li><strong>Tenaga Kerja Adaptif:</strong> Menyesuaikan diri dengan kebutuhan tenaga kerja yang adaptif dan inovatif, dengan kemampuan belajar terus-menerus dan fleksibilitas berpikir</li>
+                    <li><strong>Integrasi Teknologi:</strong> Memungkinkan adopsi dan pemanfaatan AI, IoT, dan big data dalam konteks pendidikan</li>
+                </ul>
             </div>
         </div>
     </div>
 
-    <!-- VUCA 4 tantangan -->
-    <div class="card" style="margin-bottom:0;">
-        <div class="card-title">Empat Tantangan Era VUCA &amp; Solusinya</div>
+    <div class="num-item">
+        <div class="big-num">02</div>
+        <div>
+            <div class="num-tag">Masyarakat 5.0</div>
+            <div class="num-title">Peran Landasan Pendidikan dalam Visi Society 5.0</div>
+            <div class="num-body">
+                Masyarakat yang berorientasi pada nilai kemanusiaan dengan teknologi sebagai alat untuk meningkatkan kualitas hidup — bukan sebagai ganti nilai kemanusiaan. Landasan pendidikan harus:
+                <ul>
+                    <li><strong>Pembentukan Karakter:</strong> Menekankan nilai-nilai kemanusiaan sejalan dengan visi Masyarakat 5.0</li>
+                    <li><strong>Pembelajaran Holistik:</strong> Tidak hanya mengasah kemampuan teknis, tetapi juga mengembangkan empati, etika, dan tanggung jawab sosial</li>
+                    <li>Berfokus pada kesejahteraan secara holistik: fisik, mental, sosial, dan spiritual peserta didik</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="num-item">
+        <div class="big-num">03</div>
+        <div>
+            <div class="num-tag">Era VUCA</div>
+            <div class="num-title">Landasan Pendidikan sebagai Fondasi Dinamis</div>
+            <div class="num-body">
+                Landasan pendidikan harus menjadi fondasi yang dinamis dan responsif yang:
+                <ul>
+                    <li>Selalu beradaptasi dengan perubahan teknologi dan sosial</li>
+                    <li>Menjembatani kesenjangan antara teori dan praktik</li>
+                    <li>Mengembangkan keseimbangan antara kemampuan teknis dan nilai kemanusiaan</li>
+                    <li>Menyediakan kemampuan yang transferabel dan relevan untuk masa depan</li>
+                    <li>Membentuk karakter dan kompas moral yang kuat</li>
+                    <li>Menjadi agen perubahan yang positif dalam masyarakat</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Perbandingan Indonesia vs Finlandia -->
+    <div class="card" style="margin-top:8px;">
+        <div class="card-title">Benchmark Global: Indonesia vs Finlandia</div>
+        <p style="font-size:.82rem;color:var(--muted);font-family:'DM Sans',sans-serif;margin-bottom:12px;">Model Finlandia: berbasis kesetaraan (bukan kompetisi), ujian standar minimal, otonomi guru tinggi, pendidikan gratis &amp; inklusif. Tidak dapat ditiru langsung — perbedaan budaya, populasi (~5 juta), dan kondisi ekonomi menjadi pembatas.</p>
+        <table class="compare-table">
+            <thead>
+                <tr><th>Aspek</th><th>🇮🇩 Indonesia</th><th>🇫🇮 Finlandia</th></tr>
+            </thead>
+            <tbody>
+                <tr><td><span class="aspect-label">Kualifikasi Guru</span></td><td>S1 minimum</td><td class="col-fi">S2 wajib</td></tr>
+                <tr><td><span class="aspect-label">Sistem Evaluasi</span></td><td>Ujian &amp; ranking</td><td class="col-fi">Ujian minimal</td></tr>
+                <tr><td><span class="aspect-label">Jam Belajar</span></td><td>±40 jam/minggu</td><td class="col-fi">±30 jam/minggu</td></tr>
+                <tr><td><span class="aspect-label">Pendekatan</span></td><td>Teacher-centered</td><td class="col-fi">Student-centered</td></tr>
+                <tr><td><span class="aspect-label">Biaya Pendidikan</span></td><td>Sebagian ditanggung siswa</td><td class="col-fi">Gratis penuh</td></tr>
+                <tr><td><span class="aspect-label">Fokus</span></td><td>Nilai &amp; kompetisi</td><td class="col-fi">Kesetaraan &amp; perkembangan</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- VUCA -->
+    <div class="card" style="margin-top:14px; margin-bottom:0;">
+        <div class="card-title">Empat Tantangan Era VUCA &amp; Solusi Landasan Pendidikan</div>
     </div>
     <div class="vuca-grid">
         <div class="vuca-card">
             <div class="vuca-letter">V</div>
             <div class="vuca-sub">Volatility · Volatilitas</div>
-            <div class="vuca-title">Perubahan cepat &amp; tak terduga</div>
-            <p class="vuca-body">Perubahan yang cepat dan tidak terduga dalam teknologi, kebutuhan pasar, dan kebijakan pendidikan.</p>
+            <div class="vuca-title">Perubahan cepat &amp; tak terduga dalam teknologi, pasar, dan kebijakan pendidikan</div>
             <div class="solusi-tag">Solusi</div>
             <p class="vuca-body">Kurikulum yang fleksibel dan adaptif; kemampuan guru untuk belajar terus-menerus; sistem pendidikan yang responsif.</p>
         </div>
         <div class="vuca-card">
             <div class="vuca-letter">U</div>
             <div class="vuca-sub">Uncertainty · Ketidakpastian</div>
-            <div class="vuca-title">Masa depan pekerjaan tak terdefinisi</div>
-            <p class="vuca-body">Ketidakpastian tentang pekerjaan di masa depan dan keterampilan yang akan dibutuhkan.</p>
+            <div class="vuca-title">Ketidakpastian tentang pekerjaan masa depan &amp; keterampilan yang dibutuhkan</div>
             <div class="solusi-tag">Solusi</div>
-            <p class="vuca-body">Pendidikan yang fokus pada kemampuan dasar yang transferabel, literasi adaptasi, dan kecerdasan emosional.</p>
+            <p class="vuca-body">Pendidikan fokus pada kemampuan dasar yang transferabel, literasi adaptasi, dan kecerdasan emosional.</p>
         </div>
         <div class="vuca-card">
             <div class="vuca-letter">C</div>
             <div class="vuca-sub">Complexity · Kompleksitas</div>
-            <div class="vuca-title">Sistem yang saling terhubung</div>
-            <p class="vuca-body">Sistem yang saling terhubung secara kompleks antara teknologi, sosial, ekonomi, dan lingkungan.</p>
+            <div class="vuca-title">Sistem yang saling terhubung antara teknologi, sosial, ekonomi, dan lingkungan</div>
             <div class="solusi-tag">Solusi</div>
             <p class="vuca-body">Pendekatan multidisipliner, pembelajaran berbasis masalah nyata, dan sistem berpikir sistemik.</p>
         </div>
         <div class="vuca-card">
             <div class="vuca-letter">A</div>
             <div class="vuca-sub">Ambiguity · Ambiguitas</div>
-            <div class="vuca-title">Nilai &amp; norma yang kabur</div>
-            <p class="vuca-body">Ketidakjelasan tentang nilai, norma, dan arah yang benar dalam dunia yang semakin kompleks.</p>
+            <div class="vuca-title">Ketidakjelasan tentang nilai, norma, dan arah yang benar</div>
             <div class="solusi-tag">Solusi</div>
             <p class="vuca-body">Penguatan pendidikan nilai, pendidikan karakter, dan pengembangan kompas moral yang kuat.</p>
         </div>
     </div>
-
-    <!-- Kesimpulan Point 2 -->
-    <div class="card" style="margin-top:14px;">
-        <div class="card-title">Kesimpulan: Peran Landasan Pendidikan</div>
-        <p style="font-size:.9rem;color:#3a3530;line-height:1.75;margin-bottom:10px;">Landasan pendidikan berperan sebagai fondasi yang dinamis dan responsif yang harus:</p>
-        <ul style="font-size:.88rem;color:#3a3530;padding-left:18px;line-height:1.75;">
-            <li>Selalu beradaptasi dengan perubahan teknologi dan sosial</li>
-            <li>Menjembatani kesenjangan antara teori dan praktik</li>
-            <li>Mengembangkan keseimbangan antara kemampuan teknis dan nilai kemanusiaan</li>
-            <li>Menyediakan kemampuan yang transferabel dan relevan untuk masa depan</li>
-            <li>Membentuk karakter dan kompas moral yang kuat</li>
-            <li>Mendorong pendekatan holistik dalam pembelajaran</li>
-            <li>Menjadi agen perubahan yang positif dalam masyarakat</li>
-        </ul>
-    </div>
 </div>
 
-<!-- ══ POINT 3: PANCASILA ════════════════════════════ -->
+<!-- ══ POIN D: KRITIK PANCASILA + FAKTA ══════════════ -->
 <div class="section">
-    <div class="sec-label">Point 3 — Implementasi</div>
-    <h2 class="sec-title">Nilai <em>Pancasila</em><br>dalam Pendidikan</h2>
-    <p class="sec-desc">Sumber: PPT_Laspen_Kel_10_Analysis.txt &amp; PPT_Laspen_Kel_10_Analysis_Elaborasi_Point3.txt</p>
+    <div class="sec-label">Infografis</div>
+    <div class="sec-point">Poin D</div>
+    <h2 class="sec-title">Kritik Implementasi<br><em>Nilai Pancasila</em></h2>
+    <p class="sec-desc">Disertai fakta, fenomena, dan data dari realitas pendidikan Indonesia</p>
 
-    <p style="font-size:.91rem;color:#3a3530;line-height:1.75;margin-bottom:24px;">Penerapan nilai-nilai Pancasila dari sila pertama hingga sila kelima dalam konteks pendidikan untuk seluruh masyarakat Indonesia — bukan hanya sebagai konsep teoretis, tetapi diwujudkan dalam praktik pembelajaran sehari-hari.</p>
+    <!-- Data strip -->
+    <div class="fakta-strip">
+        <div class="fakta-label">Fakta &amp; Data Realitas Pendidikan Indonesia</div>
+        <div class="fakta-grid">
+            <div class="fakta-item">
+                <div class="fakta-num">#72</div>
+                <div class="fakta-desc">Peringkat Indonesia dalam PISA 2022 dari 81 negara — di bawah rata-rata OECD dalam literasi membaca, matematika, dan sains.</div>
+            </div>
+            <div class="fakta-item">
+                <div class="fakta-num">~3T</div>
+                <div class="fakta-desc">Daerah Terdepan, Terluar, Tertinggal (3T) — ratusan guru berkualitas, fasilitas memadai, dan akses internet stabil masih menjadi kemewahan.</div>
+            </div>
+            <div class="fakta-item">
+                <div class="fakta-num">Masif</div>
+                <div class="fakta-desc">Kasus perundungan (bullying) dan intoleransi antarumat beragama masih kerap terjadi di lingkungan sekolah di berbagai wilayah Indonesia.</div>
+            </div>
+        </div>
+        <div class="fakta-note">Sumber: OECD PISA 2022 (peringkat); observasi lapangan dan laporan media pers nasional (fenomena 3T dan bullying). Verifikasi data terkini dianjurkan.</div>
+    </div>
 
+    <!-- Kritik per sila -->
     <div class="sila-card">
         <div class="sila-badge">1</div>
         <div>
             <div class="sila-num-label">Sila Pertama</div>
             <div class="sila-title">Ketuhanan Yang Maha Esa</div>
-            <p class="sila-body">Implementasi melalui pendidikan agama yang sesuai dengan kepercayaan masing-masing; pengembangan spiritualitas dan rasa hormat terhadap keberagaman agama; penghargaan terhadap keberagaman agama dan keyakinan sebagai bagian dari NKRI.</p>
-            <ul class="sila-pts">
-                <li>Pembiasaan berdoa, beribadah, dan nilai-nilai keagamaan dalam kehidupan sehari-hari</li>
-                <li>Kegiatan keagamaan yang inklusif dan menghargai perbedaan</li>
-            </ul>
+            <p class="sila-body">Implementasi: pendidikan agama sesuai kepercayaan masing-masing; pengembangan spiritualitas dan rasa hormat terhadap keberagaman agama; kegiatan keagamaan yang inklusif dan menghargai perbedaan; pembiasaan berdoa, beribadah, dan nilai-nilai keagamaan dalam kehidupan sehari-hari.</p>
+            <div class="kritik-tag">Kritik &amp; Fakta</div>
+            <p class="kritik-body">Pendidikan agama di banyak sekolah masih berfokus pada aspek kognitif dan hafalan — siswa tahu nama-nama ibadah, namun intoleransi antarumat beragama masih kerap muncul di lingkungan sekolah. Pendidikan perlu bergeser dari "mengajarkan agama" menjadi "membentuk manusia beragama" yang benar-benar hidup berdampingan secara damai.</p>
         </div>
     </div>
 
@@ -515,11 +632,9 @@
         <div>
             <div class="sila-num-label">Sila Kedua</div>
             <div class="sila-title">Kemanusiaan Yang Adil dan Beradab</div>
-            <p class="sila-body">Pendidikan hak asasi manusia dan penghormatan terhadap martabat manusia; pengembangan empati, belas kasih, dan sensitivitas terhadap sesama; penolakan terhadap diskriminasi, kekerasan, dan pelecehan dalam lingkungan pendidikan.</p>
-            <ul class="sila-pts">
-                <li>Pembiasaan perilaku yang sopan, hormat-menghormati, dan beradab</li>
-                <li>Program anti-bullying dan pendidikan toleransi</li>
-            </ul>
+            <p class="sila-body">Implementasi: pendidikan HAM dan penghormatan martabat manusia; pengembangan empati, belas kasih, dan sensitivitas terhadap sesama; program anti-bullying dan pendidikan toleransi; penolakan terhadap diskriminasi, kekerasan, dan pelecehan.</p>
+            <div class="kritik-tag">Kritik &amp; Fakta</div>
+            <p class="kritik-body">Realitas di lapangan memperlihatkan masih maraknya perundungan, kekerasan fisik, dan diskriminasi di lingkungan sekolah. Ini bukan semata masalah individu — ini cerminan sistem pendidikan yang belum sepenuhnya menanamkan empati. Kurikulum yang terlalu berorientasi nilai akademik seringkali mengorbankan pendidikan karakter.</p>
         </div>
     </div>
 
@@ -528,11 +643,9 @@
         <div>
             <div class="sila-num-label">Sila Ketiga</div>
             <div class="sila-title">Persatuan Indonesia</div>
-            <p class="sila-body">Pendidikan tentang persatuan dalam keberagaman (Bhinneka Tunggal Ika); pengembangan rasa cinta tanah air dan kesadaran sebagai bagian dari NKRI; pembelajaran tentang sejarah, budaya, dan nilai-nilai bangsa Indonesia.</p>
-            <ul class="sila-pts">
-                <li>Kegiatan yang memperkuat integrasi sosial dan nasionalisme</li>
-                <li>Penghargaan terhadap simbol-simbol negara dan pahlawan nasional</li>
-            </ul>
+            <p class="sila-body">Implementasi: pendidikan tentang persatuan dalam keberagaman (Bhinneka Tunggal Ika); pengembangan rasa cinta tanah air dan kesadaran sebagai bagian dari NKRI; kegiatan yang memperkuat integrasi sosial dan nasionalisme.</p>
+            <div class="kritik-tag">Kritik &amp; Fakta</div>
+            <p class="kritik-body">Kesenjangan mutu antara sekolah di kota besar dan daerah 3T masih sangat tajam — guru berkualitas, fasilitas memadai, dan akses internet yang stabil masih menjadi kemewahan di banyak pelosok negeri. Kondisi ini menciptakan kesenjangan generasi: anak-anak di kota siap bersaing global, sementara anak-anak di daerah terpencil berjuang untuk sekadar menuntaskan pendidikan dasar. <strong>Persatuan sejati dimulai dari pemerataan kesempatan belajar.</strong></p>
         </div>
     </div>
 
@@ -541,12 +654,9 @@
         <div>
             <div class="sila-num-label">Sila Keempat</div>
             <div class="sila-title">Kerakyatan yang Dipimpin oleh Hikmat Kebijaksanaan dalam Permusyawaratan/Perwakilan</div>
-            <p class="sila-body">Pendidikan demokrasi dan partisipasi dalam proses pengambilan keputusan; pengembangan kemampuan berpikir kritis, berargumen secara logis, dan menghargai pendapat lain.</p>
-            <ul class="sila-pts">
-                <li>Pembiasaan musyawarah untuk mencari konsensus dalam kelas dan sekolah</li>
-                <li>Pendidikan tentang hak kewargaan serta pentingnya partisipasi sipil</li>
-                <li>Kegiatan kepemimpinan siswa dan organisasi kepelajaran</li>
-            </ul>
+            <p class="sila-body">Implementasi: pendidikan demokrasi dan partisipasi dalam proses pengambilan keputusan; pengembangan kemampuan berpikir kritis dan menghargai pendapat lain; pembiasaan musyawarah; kegiatan kepemimpinan siswa dan organisasi kepelajaran.</p>
+            <div class="kritik-tag">Kritik &amp; Fakta</div>
+            <p class="kritik-body">Kebijakan pendidikan Indonesia masih banyak yang bersifat top-down — dirumuskan di pusat tanpa cukup melibatkan komunitas lokal, orang tua, dan bahkan guru di lapangan. Model pembelajaran teacher-centered yang masih dominan juga bertentangan dengan semangat sila keempat yang menghendaki partisipasi aktif.</p>
         </div>
     </div>
 
@@ -555,71 +665,104 @@
         <div>
             <div class="sila-num-label">Sila Kelima</div>
             <div class="sila-title">Keadilan Sosial bagi Seluruh Masyarakat Indonesia</div>
-            <p class="sila-body">Pendidikan tentang prinsip keadilan, kesetaraan, dan hak yang sama bagi setiap warga negara; pengembangan kesadaran akan ketidakadilan sosial dan motivasi untuk berkontribusi pada perubahan; pembiasaan perilaku yang adil, tidak memihak, dan menghormati hak orang lain.</p>
-            <ul class="sila-pts">
-                <li>Pendidikan tentang kesejahteraan sosial, kemiskinan, dan tanggung jawab sosial</li>
-                <li>Program bantuan sosial dan inklusi bagi siswa dari latar belakang yang kurang mampu</li>
-                <li>Pendidikan tentang hak ekonomi, sosial, dan budaya serta upaya mewujudkannya</li>
-            </ul>
+            <p class="sila-body">Implementasi: pendidikan tentang prinsip keadilan, kesetaraan, dan hak yang sama; pengembangan kesadaran akan ketidakadilan sosial; program bantuan sosial dan inklusi bagi siswa dari latar belakang kurang mampu; pendidikan tentang hak ekonomi, sosial, dan budaya.</p>
+            <div class="kritik-tag">Kritik &amp; Fakta</div>
+            <p class="kritik-body">Akses terhadap perangkat digital dan koneksi internet yang memadai masih sangat timpang secara geografis dan ekonomi. Keadilan pendidikan bukan berarti semua mendapat hal yang sama, melainkan semua mendapat apa yang mereka butuhkan untuk bisa berkembang — dan sistem saat ini belum mampu mewujudkan itu secara merata.</p>
+        </div>
+    </div>
+</div>
+
+<!-- ══ POIN E: STRATEGI 5 LANDASAN ══════════════════ -->
+<div class="section">
+    <div class="sec-label">Infografis</div>
+    <div class="sec-point">Poin E</div>
+    <h2 class="sec-title">Strategi Integrasi<br><em>Lima Landasan Pendidikan</em></h2>
+    <p class="sec-desc">Landasan filosofis, historis, sosiologis, antropologis, dan psikologis dalam sistem pendidikan Indonesia untuk menghadapi tantangan era VUCA dan membentuk generasi unggul, berkarakter, serta berdaya saing global</p>
+
+    <div class="strategi-item">
+        <div class="strategi-num">01</div>
+        <div>
+            <div class="strategi-tag">Landasan Filosofis</div>
+            <div class="strategi-title">Menanamkan Pancasila sebagai falsafah hidup</div>
+            <p class="strategi-body">Landasan filosofis pendidikan Indonesia bersumber pada Pancasila dan UUD 1945 yang menjunjung tinggi harkat dan martabat manusia. Pendidikan bukan sekadar transmisi pengetahuan, melainkan proses pembentukan manusia seutuhnya yang beriman, berakhlak, dan berpikir kritis. Dalam menghadapi era VUCA, landasan ini menjadi kompas — ketika segalanya berubah cepat dan penuh ketidakpastian, nilai-nilai Pancasila menjadi pegangan yang tidak goyah. Kurikulum perlu dirancang agar siswa tidak sekadar hafal sila-sila, tetapi benar-benar menghidupinya dalam keseharian.</p>
         </div>
     </div>
 
-    <!-- 6 Langkah Integrasi -->
-    <div class="card" style="margin-top:4px;">
+    <div class="strategi-item">
+        <div class="strategi-num">02</div>
+        <div>
+            <div class="strategi-tag">Landasan Historis</div>
+            <div class="strategi-title">Belajar dari perjalanan pendidikan bangsa</div>
+            <p class="strategi-body">Sejarah pendidikan Indonesia adalah sejarah perjuangan panjang — dari era kolonial yang membatasi akses belajar, hingga semangat Ki Hajar Dewantara yang memperjuangkan pendidikan untuk semua. Memahami akar historis ini penting agar generasi muda tidak hanya tahu ke mana harus pergi, tetapi juga mengerti dari mana mereka berasal. Setiap reformasi pendidikan perlu mempertimbangkan konteks budaya dan perjalanan bangsa, bukan sekadar mengadopsi model pendidikan asing tanpa adaptasi yang bermakna.</p>
+        </div>
+    </div>
+
+    <div class="strategi-item">
+        <div class="strategi-num">03</div>
+        <div>
+            <div class="strategi-tag">Landasan Sosiologis</div>
+            <div class="strategi-title">Pendidikan berbasis komunitas dan gotong royong</div>
+            <p class="strategi-body">Pendidikan tidak terjadi di ruang hampa — ia hidup dalam ekosistem sosial yang melibatkan keluarga, masyarakat, dan lembaga di sekitarnya. Landasan sosiologis mengingatkan bahwa sekolah adalah cerminan masyarakat. Strategi pendidikan berbasis komunitas berarti melibatkan orang tua secara aktif, menggandeng tokoh lokal sebagai sumber belajar, dan menciptakan ruang bagi siswa untuk belajar langsung dari realitas sosial. Di era VUCA, kemampuan berkolaborasi dan membangun jaringan sosial adalah keterampilan yang tidak kalah pentingnya dari literasi digital. Fungsi sekolah sebagai sosialisasi, transmisi budaya, dan arena interaksi sosial harus diperkuat kembali.</p>
+        </div>
+    </div>
+
+    <div class="strategi-item">
+        <div class="strategi-num">04</div>
+        <div>
+            <div class="strategi-tag">Landasan Antropologis</div>
+            <div class="strategi-title">Pendidikan berbasis kearifan lokal dan budaya</div>
+            <p class="strategi-body">Indonesia adalah rumah bagi ratusan suku bangsa dengan kekayaan budaya yang luar biasa. Landasan antropologis menegaskan bahwa keberagaman ini bukan hambatan, melainkan aset strategis. Kearifan lokal — sistem gotong royong, nilai adat, seni tradisional — mengandung kebijaksanaan yang relevan untuk menjawab tantangan zaman. Pendidikan yang mengintegrasikan budaya lokal melatih siswa untuk berpikir dari perspektif yang beragam — kemampuan krusial di dunia yang semakin terhubung. Pembelajaran berbasis proyek komunitas dan program literasi humanistik adalah wujud konkretnya.</p>
+        </div>
+    </div>
+
+    <div class="strategi-item">
+        <div class="strategi-num">05</div>
+        <div>
+            <div class="strategi-tag">Landasan Psikologis</div>
+            <div class="strategi-title">Pembelajaran berpusat pada peserta didik</div>
+            <p class="strategi-body">Setiap anak adalah individu unik dengan gaya belajar, kecepatan perkembangan, dan kebutuhan emosional yang berbeda-beda. Landasan psikologis menegaskan bahwa efektivitas pembelajaran bergantung pada seberapa baik kita memahami kondisi psikologis peserta didik. Kompetensi guru harus mencakup aspek kognitif, afektif, dan psikomotor — bukan hanya pengetahuan materi. Di era VUCA yang penuh tekanan, pendekatan pembelajaran yang responsif secara emosional, yang memberi ruang untuk gagal dan bangkit kembali, serta menghargai proses bukan hanya hasil, adalah wujud nyata dari pendidikan yang berpusat pada manusia seutuhnya.</p>
+        </div>
+    </div>
+
+    <!-- 6 langkah integrasi Pancasila -->
+    <div class="card" style="margin-top:24px;">
         <div class="card-title">Enam Langkah Integrasi Nilai Pancasila dalam Pendidikan</div>
-        <div class="step-list" style="margin-top:12px;">
+        <div style="margin-top:12px;">
             <div class="step">
                 <div class="step-num">01</div>
-                <div class="step-body">
-                    <div class="step-title">Integrasi dalam kurikulum dan silabus</div>
-                    Menyisipkan nilai Pancasila dalam seluruh mata pelajaran, bukan hanya PKn.
-                </div>
+                <div><div class="step-title">Integrasi dalam kurikulum dan silabus mata pelajaran</div><p class="step-body">Menyisipkan nilai Pancasila dalam seluruh mata pelajaran, bukan hanya PKn.</p></div>
             </div>
             <div class="step">
                 <div class="step-num">02</div>
-                <div class="step-body">
-                    <div class="step-title">Pembiasaan melalui kegiatan ekstrakurikuler</div>
-                    Memperkuat nilai Pancasila melalui kegiatan di luar jam pelajaran formal.
-                </div>
+                <div><div class="step-title">Pembiasaan melalui kegiatan ekstrakurikuler</div><p class="step-body">Memperkuat nilai Pancasila melalui kegiatan di luar jam pelajaran formal.</p></div>
             </div>
             <div class="step">
                 <div class="step-num">03</div>
-                <div class="step-body">
-                    <div class="step-title">Pembentukan budaya sekolah</div>
-                    Menciptakan budaya sekolah yang mengayomi dan menghidupkan nilai-nilai Pancasila.
-                </div>
+                <div><div class="step-title">Pembentukan budaya sekolah</div><p class="step-body">Menciptakan budaya sekolah yang mengayomi dan menghidupkan nilai-nilai Pancasila secara nyata.</p></div>
             </div>
             <div class="step">
                 <div class="step-num">04</div>
-                <div class="step-body">
-                    <div class="step-title">Pelatihan dan pengembangan kapasitas guru</div>
-                    Menginternalisasi dan mengajarkan nilai Pancasila secara efektif dalam praktik kelas.
-                </div>
+                <div><div class="step-title">Pelatihan dan pengembangan kapasitas guru</div><p class="step-body">Menginternalisasi dan mengajarkan nilai Pancasila secara efektif dalam praktik kelas sehari-hari.</p></div>
             </div>
             <div class="step">
                 <div class="step-num">05</div>
-                <div class="step-body">
-                    <div class="step-title">Kolaborasi dengan orang tua dan masyarakat</div>
-                    Penanaman nilai Pancasila bukan hanya tanggung jawab sekolah, tetapi seluruh ekosistem pendidikan.
-                </div>
+                <div><div class="step-title">Kolaborasi dengan orang tua dan masyarakat</div><p class="step-body">Penanaman nilai Pancasila bukan hanya tanggung jawab sekolah, tetapi seluruh ekosistem pendidikan.</p></div>
             </div>
             <div class="step">
                 <div class="step-num">06</div>
-                <div class="step-body">
-                    <div class="step-title">Evaluasi dan penilaian internalisasi nilai</div>
-                    Sistem penilaian yang mengukur tidak hanya pengetahuan, tetapi penerapan nyata nilai Pancasila dalam proses pembelajaran.
-                </div>
+                <div><div class="step-title">Evaluasi dan penilaian internalisasi nilai</div><p class="step-body">Sistem penilaian yang mengukur tidak hanya pengetahuan, tetapi penerapan nyata nilai Pancasila dalam pembelajaran.</p></div>
             </div>
         </div>
     </div>
 </div>
 
-<!-- ══ FOOTER ════════════════════════════════════════ -->
+<!-- ══ FOOTER ═════════════════════════════════════════ -->
 <div class="footer">
-    <p>Dibuat sebagai bagian dari <strong>Tugas UTS Mata Kuliah Landasan Pendidikan</strong></p>
-    <p>Program S-1 Rekayasa Perangkat Lunak · Universitas Pendidikan Indonesia Kampus Cibiru</p>
-    <p style="margin-top:8px;">© 2026 · Sumber utama: PPT_Laspen_Kel_10 (Summaries, Analysis, Point1 Elaborasi, Point2 Summary, Point3 Elaborasi)</p>
-    <div style="margin-top:14px;display:inline-flex;align-items:center;gap:8px;font-size:.76rem;color:var(--muted);">
+    <p><strong>Infografis Edukatif · UTS Mata Kuliah Landasan Pendidikan</strong></p>
+    <p>Program S-1 Rekayasa Perangkat Lunak · Universitas Pendidikan Indonesia Kampus Cibiru · 2026</p>
+    <p>Dosen Pengampu: Dr. Yusuf Tri Herlambang, M.Pd.</p>
+    <p style="margin-top:8px;">Sumber informasi: PPT_Laspen_Kel_10 (Summaries, Analysis, Point1 Elaborasi, Point2 Summary, Point3 Elaborasi)</p>
+    <div style="margin-top:14px;display:inline-flex;align-items:center;gap:8px;font-size:.74rem;color:var(--muted);">
         <div style="width:24px;height:2px;background:#e03e3e;border-radius:2px;"></div>
         Kata bergarisbawah merah = teks yang dikoreksi atau ditambahkan oleh AI
     </div>
