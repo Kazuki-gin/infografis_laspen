@@ -802,32 +802,6 @@ body{
 </div>
 
 </div><!-- end .page -->
-
-<!-- DOWNLOAD -->
-<div id="dl-bar">
-  <button id="dl-btn" onclick="downloadImage()">
-    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-    <span id="dl-label">DOWNLOAD PNG</span>
-  </button>
-  <p id="dl-note">// hi-res · full page</p>
-</div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-<script>
-async function downloadImage(){
-  const btn=document.getElementById('dl-btn');
-  const label=document.getElementById('dl-label');
-  const bar=document.getElementById('dl-bar');
-  btn.disabled=true;label.textContent='PROCESSING...';bar.classList.add('hidden');
-  try{
-    const target=document.querySelector('.page');
-    const canvas=await html2canvas(target,{scale:2,useCORS:true,allowTaint:true,backgroundColor:'#080c14',scrollX:0,scrollY:0,windowWidth:target.scrollWidth,windowHeight:target.scrollHeight,logging:false});
-    const link=document.createElement('a');
-    link.download='Infografis_Landasan_Pendidikan_2026.png';
-    link.href=canvas.toDataURL('image/png');link.click();
-  }catch(e){alert('Gagal. Refresh lalu coba lagi.');console.error(e);}
-  finally{bar.classList.remove('hidden');btn.disabled=false;label.textContent='DOWNLOAD PNG';}
-}
 </script>
 </body>
 </html>
